@@ -1,3 +1,5 @@
+package pre1;
+
 public class PizzaOrder {
     private Pizza pizza1;
     private Pizza pizza2;

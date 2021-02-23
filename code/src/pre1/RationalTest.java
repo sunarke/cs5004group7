@@ -1,5 +1,5 @@
-/**
- * A Junit test for the Rational class.
+package pre1; /**
+ * A Junit test for the pre1.Rational class.
  */
 
 import org.junit.Before;

@@ -1,3 +1,5 @@
+package pre1;
+
 public class Pizza {
     private String size;
     private int cheeseToppings;
