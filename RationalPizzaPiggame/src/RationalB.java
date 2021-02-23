@@ -1,9 +1,8 @@
-package hw4;
 /**
- * This class represent a rational number.
+ * This class represent a rational number for Part Two B.
  * It has two parts: numerator and denominator.
  */
-public class Rational {
+public class RationalB {
     private int numerator;
     private int denominator;
 
@@ -11,7 +10,7 @@ public class Rational {
      * Construct a rational number without the provided value,
      * and initialize this object to zero.
      */
-    public Rational(){
+    public RationalB(){
         this.numerator = 0;
         this.denominator = 1;
     }
@@ -21,7 +20,7 @@ public class Rational {
      *
      * @param wholeNumber
      */
-    public Rational(int wholeNumber){
+    public RationalB(int wholeNumber){
         this.numerator = wholeNumber;
         this.denominator = 1;
     }
@@ -32,7 +31,7 @@ public class Rational {
      * @param numerator the numerator value of this rational number.
      * @param denominator the denominator value of this rational number.
      */
-    public Rational(int numerator, int denominator){
+    public RationalB(int numerator, int denominator){
         setNumerator(numerator);
         setDenominator(denominator);
     }
@@ -44,22 +43,19 @@ public class Rational {
      * @param r2 a rational number r2 to be added to another rational number
      * @return the result of adding the two rational numbers.
      */
-    public static Rational addition(Rational r1, Rational r2){
+    public static RationalB addition(RationalB r1, RationalB r2){
         int newNumerator = r1.numerator * r2.denominator + r2.numerator * r1.denominator;
         int newDenominator = r1.denominator * r2.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new RationalB(newNumerator, newDenominator);
     }
 
     /**
-     * Return a rational number as the result of adding this rational number and the provided rational number.
-     *
+     * Change this rational number as the result of adding the provided rational number.
      * @param x a rational number x to be added to this rational number.
-     * @return a rational number as the result of adding this rational number and the provided rational number.
      */
-    public Rational addition(Rational x){
-        int newNumerator = this.numerator * x.denominator + x.numerator * this.denominator;
-        int newDenominator = this.denominator * x.denominator;
-        return new Rational(newNumerator, newDenominator);
+    public void addition(RationalB x){
+        setNumerator(this.numerator * x.denominator + x.numerator * this.denominator);
+        setDenominator(this.denominator * x.denominator);
     }
 
     /**
@@ -69,22 +65,20 @@ public class Rational {
      * @param r2 a rational number going to subtract the other rational number.
      * @return a rational number as the result of subtracting the two provided rational numbers.
      */
-    public static Rational subtraction(Rational r1, Rational r2){
+    public static RationalB subtraction(RationalB r1, RationalB r2){
         int newNumerator = r1.numerator * r2.denominator - r2.numerator * r1.denominator;
         int newDenominator = r1.denominator * r2.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new RationalB(newNumerator, newDenominator);
     }
 
     /**
-     * Return a rational number as the result of subtracting the provided rational number from this rational number.
+     * Change this rational number as the result of subtracting the provided rational number from this rational number.
      *
-     * @param x a rational number that is going to subtract this rational number.
-     * @return a rational number as the result of subtracting the provided rational number from this rational number.
+     * @param x a rational number that is going to subtract the this rational number.
      */
-    public Rational subtraction(Rational x){
-        int newNumerator = this.numerator * x.denominator - x.numerator * this.denominator;
-        int newDenominator = this.denominator * x.denominator;
-        return new Rational(newNumerator, newDenominator);
+    public void subtraction(RationalB x){
+        setNumerator(this.numerator * x.denominator - x.numerator * this.denominator);
+        setDenominator(this.denominator * x.denominator);
     }
 
     /**
@@ -94,22 +88,20 @@ public class Rational {
      * @param r2 a rational r2 to be multiplied to another rational number.
      * @return a rational number as the result of multiplying the two provided rational numbers.
      */
-    public static Rational multiplication(Rational r1, Rational r2){
+    public static RationalB multiplication(RationalB r1, RationalB r2){
         int newNumerator = r1.numerator * r2.numerator;
         int newDenominator = r1.denominator * r2.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new RationalB(newNumerator, newDenominator);
     }
 
     /**
-     * Return a rational number as the result of multiplying this rational number and the provided rational number.
+     * Change this rational number as the result of multiplying the provided rational number to this rational number.
      *
      * @param x a rational x to be multiplied to this rational number.
-     * @return a rational number as the result of multiplying this rational number and the provided rational number.
      */
-    public Rational multiplication(Rational x){
-        int newNumerator = this.numerator * x.numerator;
-        int newDenominator = this.denominator * x.denominator;
-        return new Rational(newNumerator, newDenominator);
+    public void multiplication(RationalB x){
+        setNumerator(this.numerator * x.numerator);
+        setDenominator(this.denominator * x.denominator);
     }
 
     /**
@@ -119,22 +111,20 @@ public class Rational {
      * @param r2 a rational number that are going to divide the other rational number.
      * @return a rational number as the result of the division operation of the two provided rational numbers.
      */
-    public static Rational division(Rational r1, Rational r2){
+    public static RationalB division(RationalB r1, RationalB r2){
         int newNumerator = r1.numerator * r2.denominator;
         int newDenominator = r1.denominator * r2.numerator;
-        return new Rational(newNumerator, newDenominator);
+        return new RationalB(newNumerator, newDenominator);
     }
 
     /**
-     * Return a rational number as the result of this rational number divide the provided rational number.
+     * Change this rational number as the result of this rational number divide the provided rational number.
      *
-     * @param x a rational number that are going to divide the this rational number.
-     * @return a rational number as the result of this rational number divide the provided rational number.
+     * @param x a rational number that are going to divide this rational number.
      */
-    public Rational division(Rational x){
-        int newNumerator = this.numerator * x.denominator;
-        int newDenominator = this.denominator * x.numerator;
-        return new Rational(newNumerator, newDenominator);
+    public void division(RationalB x){
+        setNumerator(this.numerator * x.denominator);
+        setDenominator(this.denominator * x.numerator);
     }
 
     /**
@@ -184,7 +174,7 @@ public class Rational {
      * @param r1 the rational number that are going to compare with this rational number.
      * @return whether this rational number and the other rational number are equal.
      */
-    public boolean equals(Rational r1){
+    public boolean equals(RationalB r1){
         if(this == r1){
             return true;
         }
@@ -216,4 +206,3 @@ public class Rational {
         }
     }
 }
-

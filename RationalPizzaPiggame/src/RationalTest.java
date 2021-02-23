@@ -1,4 +1,3 @@
-package hw4;
 /**
  * A Junit test for the Rational class.
  */
